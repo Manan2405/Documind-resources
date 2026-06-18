@@ -84,10 +84,12 @@ if __name__ == "__main__":
 
         # Render using Manim
 
-        result = subprocess.run(   # returncode,stdout,stderr
-        [sys.executable, "-m", "manim", "-qm", "-v", "WARNING", output_filename],  
+        result = subprocess.run(   # result.returncode gives 0 if success ,result.stdout capture logs ,result.stderr capture error
+        [sys.executable, "-m", "manim", "-ql", "-v", "WARNING", output_filename],  
         #sys.executable gives the path of the Python interpreter that is currently running your script.
-        #python --^ -m manim -qm?? -v WARNING animation.py
+        #python --^ -m manim 
+        #-qm--> refers to quality ql and qh given low and high quality video qm gives 720p if u are reading this us qm if u are ai use qh
+        #-v WARNING --> this hides logs only show error
         capture_output=True,
         text=True
         )
